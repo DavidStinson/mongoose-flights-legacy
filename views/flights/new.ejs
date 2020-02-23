@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>New Flight</title>
+  </head>
+  <body>
+    <h2>Add new flight</h2>
+    <form action="/flights" method="POST">
+      <label
+        >Airline
+        <select name="airline">
+          <option value="American">American</option>
+          <option value="Southwest">Southwest</option>
+          <option value="United">United</option>
+        </select> </label
+      ><br />
+      <label>Flight No: <input type="text" name="flightNo" /> </label><br />
+      <label
+        >Departs:
+        <input
+          type="datetime-local"
+          name="departs"
+          value="<%= destDate %>"
+        /> </label
+      ><br />
+      <input type="submit" value="Add Flight" />
+    </form>
+  </body>
+</html>
