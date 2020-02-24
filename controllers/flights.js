@@ -3,7 +3,8 @@ const Flight = require("../models/flight");
 module.exports = {
   index,
   new: newFlight,
-  create
+  create,
+  show
 };
 
 function index(req, res) {
@@ -14,10 +15,10 @@ function index(req, res) {
 }
 
 function newFlight(req, res) {
-  var newFlight = new Flight();
-  var dt = newFlight.departs;
+  let newFlight = new Flight();
+  let dt = newFlight.departs;
   console.log(dt);
-  var destDate = `${dt.getFullYear()}-${dt.getMonth() + 1}-${dt.getDate()}T${dt
+  let destDate = `${dt.getFullYear()}-${dt.getMonth() + 1}-${dt.getDate()}T${dt
     .getHours()
     .toString()
     .padStart(2, "0")}:${dt
@@ -33,5 +34,12 @@ function create(req, res) {
   flight.save(function(err) {
     if (err) return res.render("flights/new");
     res.redirect("flights/");
+  });
+}
+
+function show(req, res) {
+  Flight.findById(req.params.id, function(err, flight) {
+    if (err) return next(err);
+    res.render("flights/show", { flight });
   });
 }

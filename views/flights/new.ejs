@@ -10,6 +10,15 @@
     <h2>Add new flight</h2>
     <form action="/flights" method="POST">
       <label
+      >Destination
+      <select name="airport">
+        <option value="AUS">AUS</option>
+        <option value="DFW">DFW</option>
+        <option value="LAX">LAX</option>
+        <option value="SFO">SFO</option>
+        <option value="SEA">SEA</option>
+      </select>
+      <label
         >Airline
         <select name="airline">
           <option value="American">American</option>
@@ -27,6 +36,7 @@
         /> </label
       ><br />
       <input type="submit" value="Add Flight" />
+      
     </form>
   </body>
 </html>
