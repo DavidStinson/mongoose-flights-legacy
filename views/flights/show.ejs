@@ -7,7 +7,7 @@
     <title>Flights</title>
   </head>
   <body>
-		<%- include('../partials/nav') %>
+    <%- include('../partials/nav') %>
     <section>
       <div>Airline:</div>
       <div><%= flight.airline %></div>
@@ -58,5 +58,35 @@
     <% } else { %>
     <h5>No Destinations Yet</h5>
     <% } %>
+    <section>
+      <form action="/flights/<%= flight._id %>/tickets/new" method="GET">
+        <!-- <label
+          >Book a ticket!: <input name="seat" required pattern="[A-F][1-9]\d?" />
+        </label>
+          <input type="text" name="price" /> </label
+        ><br />-->
+        <input type="submit" value="Get a ticket" /> 
+      </form>
+    </section> 
+    <% if (tickets.length) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Ticket</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% tickets.forEach(function(ticket) { %>
+          <tr>
+            <td><%= ticket.seat %></td>
+            <td><%= flight.price %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <h5>No Tickets Sold Yet</h5>
+      <% } %>
   </body>
 </html>
