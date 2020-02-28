@@ -65,28 +65,28 @@
         </label>
           <input type="text" name="price" /> </label
         ><br />-->
-        <input type="submit" value="Get a ticket" /> 
+        <input type="submit" value="Get a ticket" />
       </form>
-    </section> 
+    </section>
     <% if (tickets.length) { %>
-      <table>
-        <thead>
-          <tr>
-            <th>Ticket</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% tickets.forEach(function(ticket) { %>
-          <tr>
-            <td><%= ticket.seat %></td>
-            <td><%= flight.price %></td>
-          </tr>
-          <% }); %>
-        </tbody>
-      </table>
-      <% } else { %>
-      <h5>No Tickets Sold Yet</h5>
-      <% } %>
+    <table>
+      <thead>
+        <tr>
+          <th>Ticket</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tickets.forEach(function(ticket) { %>
+        <tr>
+          <td><%= ticket.seat %></td>
+          <td><%= ticket.price %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } else { %>
+    <h5>No Tickets Sold Yet</h5>
+    <% } %>
   </body>
 </html>
